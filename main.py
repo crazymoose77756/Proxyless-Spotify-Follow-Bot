@@ -46,9 +46,9 @@ def thread_starter():
     result, error = obj.follow()
     if result is True:
         counter += 1
-        safe_print(Fore.GREEN + "Followed {}".format(counter))
+        safe_print(Fore.GREEN+"Success "+Fore.WHITE+"Followed {}".format(counter)+" times")
     else:
-        safe_print(Fore.RED + f"Error: {Fore.WHITE + error}")
+        safe_print(Fore.RED+f"Error: {Fore.WHITE+error}")
 
 
 while True:

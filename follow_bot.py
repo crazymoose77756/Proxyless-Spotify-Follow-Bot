@@ -89,7 +89,7 @@ class spotify:
             return None, f"Bad proxy {self.proxy}"
         auth_token = self.get_token(login_token)
         if auth_token is None:
-            return None, "while getting auth token"
+            return None, "While getting auth token"
         headers = {
             "accept": "application/json",
             "Accept-Encoding": "gzip, deflate, br",
