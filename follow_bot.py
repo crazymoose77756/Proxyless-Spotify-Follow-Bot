@@ -1,16 +1,15 @@
-try:
-    import requests, random, string
-except ImportError:
-    input("Error while importing modules. Please install the modules in requirements.txt")
-    exit()
-    
+import requests
+import random
+import string
+
+
 class spotify:
 
-    def __init__(self, profile, proxy = None):
+    def __init__(self, profile, proxy=None):
         self.session = requests.Session()
         self.profile = profile
         self.proxy = proxy
-    
+
     def register_account(self):
         headers = {
             "Accept": "*/*",
@@ -21,9 +20,9 @@ class spotify:
         email = ("").join(random.choices(string.ascii_letters + string.digits, k = 8)) + "@gmail.com"
         password = ("").join(random.choices(string.ascii_letters + string.digits, k = 8))
         proxies = None
-        if self.proxy != None:
+        if self.proxy is not None:
             proxies = {"https": f"http://{self.proxy}"}
-        data = f"birth_day=1&birth_month=01&birth_year=1970&collect_personal_info=undefined&creation_flow=&creation_point=https://www.spotify.com/uk/&displayname=github.com/useragents&email={email}&gender=neutral&iagree=1&key=a1e486e2729f46d6bb368d6b2bcda326&password={password}&password_repeat={password}&platform=www&referrer=&send-email=1&thirdpartyemail=0&fb=0"
+        data = f"birth_day=1&birth_month=01&birth_year=1970&collect_personal_info=undefined&creation_flow=&creation_point=https://www.spotify.com/uk/&displayname=CoolName&email={email}&gender=neutral&iagree=1&key=a1e486e2729f46d6bb368d6b2bcda326&password={password}&password_repeat={password}&platform=www&referrer=&send-email=1&thirdpartyemail=0&fb=0"
         try:
             create = self.session.post("https://spclient.wg.spotify.com/signup/public/v1/account", headers = headers, data = data, proxies = proxies)
             if "login_token" in create.text:
@@ -42,7 +41,7 @@ class spotify:
             return r.text.split('csrfToken":"')[1].split('"')[0]
         except:
             return None
-        
+
     def get_token(self, login_token):
         headers = {
             "Accept": "*/*",
@@ -72,19 +71,24 @@ class spotify:
             return None
 
     def follow(self):
+
         if "/user/" in self.profile:
             self.profile = self.profile.split("/user/")[1]
-        if "?" in self.profile:
             self.profile = self.profile.split("?")[0]
+            mode = 0
+        elif "/playlist/" in self.profile:
+            self.profile = self.profile.split("/playlist/")[1]
+            self.profile = self.profile.split("?")[0]
+            mode = 1
         login_token = self.register_account()
         if login_token == None:
             return None, "while registering, ratelimit"
-        elif login_token == False:
-            if self.proxy == None:
+        elif login_token is False:
+            if self.proxy is None:
                 return None, f"unable to send request on register"
-            return None, f"bad proxy on register {self.proxy}"
+            return None, f"bad proxy {self.proxy}"
         auth_token = self.get_token(login_token)
-        if auth_token == None:
+        if auth_token is None:
             return None, "while getting auth token"
         headers = {
             "accept": "application/json",
@@ -96,13 +100,15 @@ class spotify:
             "spotify-app-version": "1.1.52.204.ge43bc405",
             "authorization": "Bearer {}".format(auth_token),
         }
-        try:
+        if mode == 0:
             self.session.put(
                 "https://api.spotify.com/v1/me/following?type=user&ids=" + self.profile,
                 headers = headers
             )
             return True, None
-        except:
-            return False, "while following"
-
-#Developed by https://github.com/useragents
+        else:
+            self.session.put(
+                "https://api.spotify.com/v1/playlists/" + self.profile + "/followers",
+                headers = headers
+            )
+            return True, None
