@@ -2,6 +2,7 @@ from follow_bot import spotify
 import threading
 import os
 from time import sleep
+from colorama import Fore
 
 lock = threading.Lock()
 proxies = []
@@ -45,9 +46,9 @@ def thread_starter():
     result, error = obj.follow()
     if result is True:
         counter += 1
-        safe_print("Followed {}".format(counter))
+        safe_print(Fore.GREEN + "Followed {}".format(counter))
     else:
-        safe_print(f"Error, {error}")
+        safe_print(Fore.RED + f"Error: {Fore.WHITE + error}")
 
 
 while True:

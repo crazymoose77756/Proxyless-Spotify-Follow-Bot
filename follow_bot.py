@@ -82,11 +82,11 @@ class spotify:
             mode = 1
         login_token = self.register_account()
         if login_token == None:
-            return None, "while registering, ratelimit"
+            return None, "Ratelimit"
         elif login_token is False:
             if self.proxy is None:
                 return None, f"unable to send request on register"
-            return None, f"bad proxy {self.proxy}"
+            return None, f"Bad proxy {self.proxy}"
         auth_token = self.get_token(login_token)
         if auth_token is None:
             return None, "while getting auth token"
