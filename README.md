@@ -17,7 +17,7 @@
   <br>
   <li>Install `requirements.txt` <pre><code>$ pip install -r requirements.txt</code></pre></li>
   <li>And run it! <pre><code>$ python main.py</code></pre></li>
-<ul>
+</ul>
 
 --------------------------------------
 
