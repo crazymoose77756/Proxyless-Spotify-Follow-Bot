@@ -4,6 +4,7 @@
   Requests based multi-threaded script for increasing followers on Spotify. Click <a href="https://github.com/crazymoose77756/Proxyless-Spotify-Follow-Bot/issues">here</a> to report bugs.
   
 <img width="500" src="https://user-images.githubusercontent.com/52980616/175798612-680ad56b-020a-4baf-9b81-c1f39165dd0c.png">
+  <br>Increases followers on playlists and users.
 
 </div>
 
