@@ -13,7 +13,7 @@
 ### Usage
 
 1. Clone the repository <pre>git clone https://github.com/crazymoose77756/Proxyless-Spotify-Follow-Bot.git</pre>
-Or download the ZIP <a href="https://github.com/crazymoose77756/Proxyless-Spotify-Follow-Bot/archive/refs/heads/main.zip">here</a> and extract
+Or download the ZIP <a href="https://github.com/crazymoose77756/Proxyless-Spotify-Follow-Bot/archive/refs/heads/main.zip">here</a> and extract<br>
 2. Install `requirements.txt` <pre>pip install -r requirements.txt</pre>
 3. And run it! <pre>python main.py</pre>
 
