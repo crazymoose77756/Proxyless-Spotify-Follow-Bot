@@ -2,7 +2,7 @@
 <div align="center">
 
   # Proxyless Spotify Follower Bot
-  Requests based multi-threaded script for increasing followers on Spotify. Click <a href="https://github.com/useragents/Proxyless-Spotify-Follow-Bot/issues">here</a> to report bugs.
+  Requests based multi-threaded script for increasing followers on Spotify. Click <a href="https://github.com/crazymoose77756/Proxyless-Spotify-Follow-Bot/issues">here</a> to report bugs.
   
   ![image](https://user-images.githubusercontent.com/102762968/161622560-22f88eae-709e-4c07-a66e-8147dd3d43dd.png)
 
@@ -13,9 +13,9 @@
 ### Usage
 
 1. Clone the repository <pre>git clone https://github.com/crazymoose77756/Proxyless-Spotify-Follow-Bot.git</pre>
-Download ZIP <a href="https://github.com/crazymoose77756/Proxyless-Spotify-Follow-Bot/archive/refs/heads/main.zip">here</a> and extract the ZIP
-2. Install `requirements.txt` by typing `pip install -r requirements.txt` in your terminal
-4. Run the `run.bat` file and enter the amount of threads
+Or download the ZIP <a href="https://github.com/crazymoose77756/Proxyless-Spotify-Follow-Bot/archive/refs/heads/main.zip">here</a> and extract
+2. Install `requirements.txt` <pre>pip install -r requirements.txt</pre>
+3. And run it! <pre>python main.py</pre>
 
 --------------------------------------
 
